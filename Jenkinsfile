@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage ('checkout'){
       steps{
-        git checkout master
+        sh 'git checkout master'
       }
     }
    stage ('Build'){
@@ -13,11 +13,13 @@ pipeline{
                       docker { image 'node:10' }
                   }
                   steps {
-                         echo Installing packages
-                         npm install
-                         npm install -g @angular/cli@8
-                         echo Building Angular Project
-                         ng build
+                         sh '''
+                               echo Installing packages
+                               npm install
+                               npm install -g @angular/cli@8
+                               echo Building Angular Project
+                               ng build
+                         '''
                   }
              }
               stage("S3 Build") {
