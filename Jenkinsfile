@@ -34,5 +34,8 @@ pipeline{
       steps{
         aws s3 cp dist/ s3://AngularS3Bucket/ --recursive --region us-east-1
       } */
+       }
+   }
+    
     }
 }
