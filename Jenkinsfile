@@ -32,7 +32,7 @@ pipeline{
         sh 'aws s3 cp . s3://sample-angular-demo/ --region us-east-2'
         }
       }
-   
+    }
     
     }
 }
