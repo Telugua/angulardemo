@@ -29,7 +29,7 @@ pipeline{
       steps{
     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'deploy_task', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
         sh 'aws s3 ls'
-        sh 'aws s3 cp . s3://sample-angular-demo/ --region us-east-2'
+        sh 'aws s3 sync . s3://sample-angular-demo/ --region us-east-2'
         }
       }
     }
