@@ -24,7 +24,7 @@ pipeline{
              }
          stage("S3 Build") {
                   steps {
-                         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'angular_push', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'deploy_task', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
 
                          //aws cloudformation create-stack --stack-name S3bucketcreation --template-body file:cft.yaml
                          sh 'aws s3api create-bucket --bucket jangatelugubucket --region us-east-1'
