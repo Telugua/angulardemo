@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: 'The AWS CloudFormation template creates S3 bucket'
+Resources:
+  AngularS3Bucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    Properties:
+#      BucketName: !Ref AngularS3Bucket
+      VersioningConfiguration:
+        Status: Enabled
