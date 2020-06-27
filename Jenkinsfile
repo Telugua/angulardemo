@@ -44,5 +44,13 @@ pipeline{
       }
     }
     
+    stage ('CFT Build') {
+      steps{
+    //withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'deploy_task', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+        aws cloudformation create-stack --stack-name S3bucketcreation --template-body file:CFT.yaml
+        }
+      }
+    }
+    
    }
 }
